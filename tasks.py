@@ -36,6 +36,10 @@ def main():
         save_tasks(tasks)
         print("已添加任务")
     elif args.command == "done":
+        if not tasks:
+            parser.error("暂无任务可完成")
+        if not 1 <= args.number <= len(tasks):
+            parser.error(f"任务编号必须在 1 到 {len(tasks)} 之间")
         tasks[args.number - 1]["done"] = True
         save_tasks(tasks)
         print("任务已完成")
