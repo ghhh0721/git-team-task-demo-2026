@@ -26,6 +26,8 @@ def main():
     add_command = commands.add_parser("add", help="添加任务")
     add_command.add_argument("text", help="任务内容")
     commands.add_parser("list", help="查看任务")
+    done_command = commands.add_parser("done", help="完成任务")
+    done_command.add_argument("number", type=int, help="任务编号")
     args = parser.parse_args()
 
     tasks = load_tasks()
@@ -33,6 +35,10 @@ def main():
         tasks.append({"text": args.text, "done": False})
         save_tasks(tasks)
         print("已添加任务")
+    elif args.command == "done":
+        tasks[args.number - 1]["done"] = True
+        save_tasks(tasks)
+        print("任务已完成")
     elif not tasks:
         print("暂无任务")
     else:

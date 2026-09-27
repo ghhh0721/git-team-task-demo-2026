@@ -9,6 +9,7 @@
 ```powershell
 python tasks.py add "完成 Git 作业"
 python tasks.py list
+python tasks.py done 1
 ```
 
 任务保存在当前目录的 `tasks.json` 中；该文件不会提交到仓库。
