@@ -1,5 +1,3 @@
-"""A tiny command-line task list stored in a JSON file."""
-
 import argparse
 import json
 from pathlib import Path
